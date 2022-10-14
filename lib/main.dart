@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:fasty/Autenticacion.dart';
 import 'package:fasty/creacion_modulos.dart';
 import 'package:fasty/ventana_modulos.dart';
 import 'package:fasty/fastyboard.dart';
@@ -24,6 +25,6 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: crearModulos());
+        home: autentcacion());
   }
 }

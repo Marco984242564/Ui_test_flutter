@@ -9,6 +9,8 @@ import 'package:fasty/widgets/login_data.dart';
 import 'package:fasty/widgets/fasty_Modulos.dart';
 import 'package:flutter/material.dart';
 
+import 'creacion_historias.dart';
+
 void main() {
   runApp(DevicePreview(
     builder: (_) => MyApp(),
@@ -25,6 +27,6 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: autentcacion());
+        home: crear_historias());
   }
 }

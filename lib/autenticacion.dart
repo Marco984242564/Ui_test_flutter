@@ -1,3 +1,4 @@
+import 'package:fasty/widgets/autenticacion_box.dart';
 import 'package:flutter/material.dart';
 
 class autentcacion extends StatelessWidget {
@@ -18,9 +19,10 @@ class autentcacion extends StatelessWidget {
                         Icons.arrow_back,
                         color: Colors.blue,
                       )),
-                  const SizedBox(
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 22),
                     width: 182,
-                    child: Text(
+                    child: const Text(
                       'Módulo Autenticación Backlog',
                       style: TextStyle(
                           fontFamily: 'Inter',
@@ -58,7 +60,24 @@ class autentcacion extends StatelessWidget {
                 ],
               )
             ],
-          )
+          ),
+          Column(children: const [
+            autenticacion_Box(
+              titulo: 'Log in',
+            ),
+            autenticacion_Box(
+              titulo: 'Log out',
+            ),
+            autenticacion_Box(
+              titulo: 'Change Password',
+            ),
+            autenticacion_Box(
+              titulo: 'Recover Password',
+            ),
+            autenticacion_Box(
+              titulo: 'Recover Password',
+            ),
+          ])
         ]));
   }
 }

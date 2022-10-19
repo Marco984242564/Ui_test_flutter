@@ -6,9 +6,11 @@ class fasty_Botones extends StatelessWidget {
     required this.btn_label,
     required this.btn_label2,
     required this.icondata,
+    required this.direccion,
   });
   final String btn_label;
   final String btn_label2;
+  final Widget direccion;
 
   final IconData icondata;
 
@@ -54,7 +56,10 @@ class fasty_Botones extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white, shadowColor: Colors.blue),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => direccion));
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

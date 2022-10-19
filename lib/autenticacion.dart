@@ -1,10 +1,16 @@
+import 'package:fasty/creacion_historias.dart';
+import 'package:fasty/fastyboard.dart';
 import 'package:fasty/widgets/autenticacion_box.dart';
+import 'package:fasty/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
-class autentcacion extends StatelessWidget {
+class autenticacion extends StatelessWidget {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: const drawer(),
+        key: scaffoldKey,
         backgroundColor: Colors.grey.shade200,
         body: ListView(children: [
           Row(
@@ -14,7 +20,13 @@ class autentcacion extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const fastyBoard()),
+                        );
+                      },
                       icon: const Icon(
                         Icons.arrow_back,
                         color: Colors.blue,
@@ -34,10 +46,18 @@ class autentcacion extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Icon(
-                    Icons.add_circle_outlined,
-                    color: Colors.blue,
-                    size: 35,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => crear_historias()));
+                    },
+                    child: const Icon(
+                      Icons.add_circle_outlined,
+                      color: Colors.blue,
+                      size: 35,
+                    ),
                   ),
                   const SizedBox(
                     width: 25,
@@ -48,10 +68,15 @@ class autentcacion extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.blue,
                     ),
-                    child: const Icon(
-                      Icons.menu_outlined,
-                      color: Colors.white,
-                      size: 30,
+                    child: InkWell(
+                      onTap: () {
+                        scaffoldKey.currentState!.openDrawer();
+                      },
+                      child: const Icon(
+                        color: Colors.white,
+                        Icons.menu_outlined,
+                        size: 30,
+                      ),
                     ),
                   ),
                   const SizedBox(

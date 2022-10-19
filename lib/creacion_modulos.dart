@@ -1,3 +1,4 @@
+import 'package:fasty/ventana_modulos.dart';
 import 'package:fasty/widgets/fasty_botones.dart';
 import 'package:fasty/widgets/fasty_fields.dart';
 import 'package:fasty/widgets/insertar_Imagen.dart';
@@ -11,6 +12,7 @@ class crearModulos extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           title: Row(
             children: const [
@@ -46,18 +48,25 @@ class crearModulos extends StatelessWidget {
                 style: TextStyle(fontFamily: 'Inter', fontSize: 20),
               ),
             ),
-            insertar_Imagen(),
-            insertar_Imagen(),
-            insertar_Imagen(),
+            const insertar_Imagen(
+              height: 160,
+            ),
+            const insertar_Imagen(
+              height: 160,
+            ),
+            const insertar_Imagen(
+              height: 160,
+            ),
             const SizedBox(
               height: 34,
             ),
             Container(
                 padding: const EdgeInsets.only(bottom: 53),
-                child: const fasty_Botones(
+                child: fasty_Botones(
                   btn_label: 'Crear',
                   btn_label2: 'Cancelar',
                   icondata: Icons.add_outlined,
+                  direccion: ventana_Modulos(),
                 )),
           ],
         ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class insertar_Imagen extends StatelessWidget {
+  const insertar_Imagen({super.key, required this.height});
+
+  final double height;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +16,7 @@ class insertar_Imagen extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            height: 160,
+            height: height,
             decoration: BoxDecoration(
               border: Border.all(),
               borderRadius: BorderRadius.circular(15),

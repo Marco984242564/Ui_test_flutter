@@ -1,6 +1,10 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:fasty/Autenticacion.dart';
+
+import 'package:fasty/arquitecturas.dart';
+import 'package:fasty/autenticacion.dart';
 import 'package:fasty/creacion_modulos.dart';
+import 'package:fasty/creacion_tecnologias.dart';
+import 'package:fasty/tecnologias.dart';
 import 'package:fasty/ventana_modulos.dart';
 import 'package:fasty/fastyboard.dart';
 import 'package:fasty/log_in.dart';
@@ -27,6 +31,6 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: crear_historias());
+        home: Log_in());
   }
 }

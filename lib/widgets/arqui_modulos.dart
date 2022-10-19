@@ -1,23 +1,30 @@
+import 'package:fasty/widgets/estrellas_valoracion.dart';
 import 'package:flutter/material.dart';
 
 import 'fasty_etiquetas.dart';
 
-class fasty_Modulos extends StatelessWidget {
-  const fasty_Modulos({
+class arqui_modulos extends StatelessWidget {
+  const arqui_modulos({
     super.key,
     required this.imgModulo,
     required this.Header,
     required this.color,
-    this.showHU = false,
     required this.fit,
     this.showArrow = false,
     required this.icono,
     required this.color2,
+    required this.porcentaje,
+    this.vacia = true,
+    this.vacia2 = true,
+    this.vacia3 = true,
   });
   final AssetImage imgModulo;
   final String Header;
   final Color color;
-  final bool showHU;
+  final String porcentaje;
+  final bool vacia;
+  final bool vacia2;
+  final bool vacia3;
   final BoxFit fit;
   final bool showArrow;
   final IconData icono;
@@ -70,11 +77,10 @@ class fasty_Modulos extends StatelessWidget {
               ),
               Row(
                 children: [
-                  if (showArrow)
-                    Icon(
-                      icono,
-                      color: color2,
-                    ),
+                  Icon(
+                    icono,
+                    color: color2,
+                  ),
                   const SizedBox(
                     width: 10,
                   ),
@@ -103,36 +109,56 @@ class fasty_Modulos extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 38),
             child: const Text(
                 style: TextStyle(fontFamily: 'Inter', fontSize: 16),
-                'Lorem ipsum dolor sit amet consectetur adipiscing elit habitasse eget, erat aliquam integer nibh justo '),
+                'Esta arquitectura está orientada a microservicios con Nest JS y con una capa interna de GraphQL con Apolo. Muy funcional para aplicaciones de bajo costo y de dimensiones media - baja. Trabaja con Node y es compatible con bases de datos SQL y NO-SQL'),
           ),
           const SizedBox(
             height: 21,
           ),
-          if (showHU)
-            Container(
-              padding: const EdgeInsets.only(left: 34),
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.local_library_outlined,
-                    size: 24,
-                    color: Colors.blue,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 8),
-                    child: const Text(
-                      'O HU',
-                      style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 14,
-                          color: Colors.blue),
-                    ),
-                  ),
-                ],
-              ),
+          Container(
+            padding: const EdgeInsets.only(
+              left: 38,
             ),
-          SizedBox(
-            height: 39,
+            child: Row(
+              children: const [
+                fasty_etiqueta(etiqueta: 'NEST'),
+                fasty_etiqueta(etiqueta: 'JAVASCRIPT'),
+                fasty_etiqueta(etiqueta: 'GraphQL'),
+                fasty_etiqueta(etiqueta: 'NODE'),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            padding: const EdgeInsets.only(bottom: 28, left: 200),
+            child: Row(
+              children: [
+                estrellas(
+                  vacia: vacia,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                estrellas(
+                  vacia: vacia2,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                estrellas(
+                  vacia: vacia3,
+                ),
+                const SizedBox(
+                  width: 18,
+                ),
+                Text(
+                  porcentaje,
+                  style: const TextStyle(
+                      fontFamily: 'Inter', fontSize: 16, color: Colors.green),
+                )
+              ],
+            ),
           ),
           Container(
             height: 16,

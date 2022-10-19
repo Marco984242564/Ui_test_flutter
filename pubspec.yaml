@@ -71,6 +71,9 @@ flutter:
     - assets/Imagenes/modulos5.jpg
     - assets/Imagenes/modulos6.jpg
     - assets/Imagenes/Imagenes.png
+    - assets/Imagenes/nest_framework_logo.png
+    - assets/Imagenes/nextjs-logo.png
+    - assets/Imagenes/react.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

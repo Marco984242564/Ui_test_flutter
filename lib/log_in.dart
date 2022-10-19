@@ -1,3 +1,4 @@
+import 'package:fasty/fastyboard.dart';
 import 'package:fasty/widgets/login_data.dart';
 import 'package:flutter/material.dart';
 
@@ -64,7 +65,12 @@ class Log_in extends StatelessWidget {
                     width: 210,
                     height: 48,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const fastyBoard()));
+                      },
                       child: const Text('LOG IN'),
                     ),
                   ),

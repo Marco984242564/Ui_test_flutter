@@ -1,11 +1,54 @@
-import 'package:fasty/widgets/arqui_modulos.dart';
+// ignore_for_file: unused_import, camel_case_types
+
+import 'dart:convert';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fasty/models/tecnologias.dart';
+import 'package:fasty/pages/creacion_tecnologias.dart';
 import 'package:fasty/widgets/drawer.dart';
 import 'package:fasty/widgets/fasty_Modulos.dart';
-import 'package:fasty/widgets/fasty_etiquetas.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
-class fasty_arquitectura extends StatelessWidget {
+class fasty_tecnologias extends StatefulWidget {
+  const fasty_tecnologias({super.key});
+
+  @override
+  State<fasty_tecnologias> createState() => _fasty_tecnologiasState();
+}
+
+class _fasty_tecnologiasState extends State<fasty_tecnologias> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  Future<http.Request> _getTec() async {
+    var request = http.Request(
+        'GET',
+        Uri.parse(
+            'https://shy-feet-care-187-190-158-32.loca.lt/local/technologies/list'));
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      final res = await response.stream.bytesToString();
+      var jsonData = await jsonDecode(res);
+      List<Tecnologia> tecnologias = [];
+      for (var u in jsonData) {
+        Tecnologia tecnologia = Tecnologia;
+      }
+
+      print(res);
+    } else {
+      print(response.reasonPhrase);
+    }
+    return request;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getTec();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,17 +68,26 @@ class fasty_arquitectura extends StatelessWidget {
                     left: 47,
                   ),
                   child: const Text(
-                    'Arquitecturas',
+                    'Tecnologias',
                     style: TextStyle(
                         fontFamily: 'Inter', fontSize: 18, color: Colors.blue),
                   ),
                 ),
                 Row(
                   children: [
-                    const Icon(
-                      Icons.add_circle_outlined,
-                      color: Colors.blue,
-                      size: 30,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const crear_tecnologia()));
+                      },
+                      child: const Icon(
+                        Icons.add_circle_outlined,
+                        color: Colors.blue,
+                        size: 30,
+                      ),
                     ),
                     const SizedBox(
                       width: 25,
@@ -64,41 +116,7 @@ class fasty_arquitectura extends StatelessWidget {
                 )
               ])),
       body: ListView(
-        children: [
-          Column(
-            children: const [
-              arqui_modulos(
-                imgModulo: AssetImage('assets/Imagenes/nextjs-logo.png'),
-                Header: 'Microservicios con Nest',
-                color: Colors.amber,
-                fit: BoxFit.cover,
-                icono: Icons.arrow_upward_outlined,
-                showArrow: true,
-                color2: Colors.green,
-                porcentaje: '91 %',
-                vacia: false,
-                vacia2: false,
-                vacia3: false,
-              ),
-            ],
-          ),
-          const arqui_modulos(
-            imgModulo: AssetImage('assets/Imagenes/react.png'),
-            Header: 'App Móvil con React y AWS Lambda',
-            color: Colors.red,
-            fit: BoxFit.cover,
-            icono: Icons.arrow_downward_outlined,
-            showArrow: true,
-            color2: Colors.red,
-            porcentaje: '75 %',
-            vacia: false,
-            vacia2: false,
-            vacia3: true,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-        ],
+        children: const [],
       ),
     );
   }

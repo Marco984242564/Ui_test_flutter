@@ -1,11 +1,13 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
-import '../arquitecturas.dart';
-import '../autenticacion.dart';
-import '../fastyboard.dart';
-import '../log_in.dart';
-import '../tecnologias.dart';
-import '../ventana_modulos.dart';
+import '../pages/arquitecturas.dart';
+import '../pages/autenticacion.dart';
+import '../pages/fastyboard.dart';
+import '../pages/log_in.dart';
+import '../pages/tecnologias.dart';
+import '../pages/ventana_modulos.dart';
 import 'fasty_options.dart';
 
 class drawer extends StatelessWidget {

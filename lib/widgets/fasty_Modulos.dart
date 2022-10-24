@@ -1,3 +1,6 @@
+// ignore_for_file: file_names, unused_import, camel_case_types, non_constant_identifier_names
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'fasty_etiquetas.dart';
@@ -14,7 +17,7 @@ class fasty_Modulos extends StatelessWidget {
     required this.icono,
     required this.color2,
   });
-  final AssetImage imgModulo;
+  final String imgModulo;
   final String Header;
   final Color color;
   final bool showHU;
@@ -33,9 +36,9 @@ class fasty_Modulos extends StatelessWidget {
             width: double.infinity,
             height: 152,
             color: Colors.white,
-            child: Image(
-              image: imgModulo,
+            child: CachedNetworkImage(
               fit: fit,
+              imageUrl: imgModulo,
             ),
           ),
           const SizedBox(
@@ -131,7 +134,7 @@ class fasty_Modulos extends StatelessWidget {
                 ],
               ),
             ),
-          SizedBox(
+          const SizedBox(
             height: 39,
           ),
           Container(

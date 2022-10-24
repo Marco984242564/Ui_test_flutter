@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class estrellas extends StatelessWidget {
@@ -6,12 +8,13 @@ class estrellas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (vacia)
-      return Icon(
+    if (vacia) {
+      return const Icon(
         Icons.star_outline,
         color: Colors.amber,
       );
-    else
-      return Icon(Icons.star, color: Colors.amber);
+    } else {
+      return const Icon(Icons.star, color: Colors.amber);
+    }
   }
 }

@@ -1,12 +1,7 @@
-import 'package:fasty/arquitecturas.dart';
-import 'package:fasty/log_in.dart';
-import 'package:fasty/tecnologias.dart';
-import 'package:fasty/ventana_modulos.dart';
-import 'package:fasty/widgets/drawer.dart';
-import 'package:fasty/widgets/fasty_options.dart';
-import 'package:flutter/material.dart';
+// ignore_for_file: camel_case_types
 
-import 'autenticacion.dart';
+import 'package:fasty/widgets/drawer.dart';
+import 'package:flutter/material.dart';
 
 //DASHBOARD DE LA APLICACION
 class fastyBoard extends StatelessWidget {

@@ -1,4 +1,6 @@
-import 'package:fasty/fastyboard.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:fasty/pages/fastyboard.dart';
 import 'package:fasty/widgets/login_data.dart';
 import 'package:flutter/material.dart';
 

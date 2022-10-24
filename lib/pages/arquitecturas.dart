@@ -1,10 +1,13 @@
-import 'package:fasty/creacion_tecnologias.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:fasty/widgets/arqui_modulos.dart';
 import 'package:fasty/widgets/drawer.dart';
-import 'package:fasty/widgets/fasty_Modulos.dart';
 import 'package:flutter/material.dart';
 
-class fasty_tecnologias extends StatelessWidget {
+class fasty_arquitectura extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  fasty_arquitectura({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,26 +27,17 @@ class fasty_tecnologias extends StatelessWidget {
                     left: 47,
                   ),
                   child: const Text(
-                    'Tecnologias',
+                    'Arquitecturas',
                     style: TextStyle(
                         fontFamily: 'Inter', fontSize: 18, color: Colors.blue),
                   ),
                 ),
                 Row(
                   children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const crear_tecnologia()));
-                      },
-                      child: const Icon(
-                        Icons.add_circle_outlined,
-                        color: Colors.blue,
-                        size: 30,
-                      ),
+                    const Icon(
+                      Icons.add_circle_outlined,
+                      color: Colors.blue,
+                      size: 30,
                     ),
                     const SizedBox(
                       width: 25,
@@ -72,30 +66,39 @@ class fasty_tecnologias extends StatelessWidget {
                 )
               ])),
       body: ListView(
-        children: const [
-          fasty_Modulos(
-            imgModulo: AssetImage('assets/Imagenes/nextjs-logo.png'),
-            Header: 'next',
-            color: Colors.amber,
-            fit: BoxFit.contain,
-            icono: Icons.arrow_upward_outlined,
-            color2: Colors.green,
+        children: [
+          Column(
+            children: const [
+              arqui_modulos(
+                imgModulo: AssetImage('assets/Imagenes/nextjs-logo.png'),
+                Header: 'Microservicios con Nest',
+                color: Colors.amber,
+                fit: BoxFit.cover,
+                icono: Icons.arrow_upward_outlined,
+                showArrow: true,
+                color2: Colors.green,
+                porcentaje: '91 %',
+                vacia: false,
+                vacia2: false,
+                vacia3: false,
+              ),
+            ],
           ),
-          fasty_Modulos(
+          const arqui_modulos(
             imgModulo: AssetImage('assets/Imagenes/react.png'),
-            Header: 'React',
+            Header: 'App Móvil con React y AWS Lambda',
             color: Colors.red,
-            fit: BoxFit.contain,
-            color2: Colors.green,
-            icono: Icons.arrow_upward_outlined,
+            fit: BoxFit.cover,
+            icono: Icons.arrow_downward_outlined,
+            showArrow: true,
+            color2: Colors.red,
+            porcentaje: '75 %',
+            vacia: false,
+            vacia2: false,
+            vacia3: true,
           ),
-          fasty_Modulos(
-            imgModulo: AssetImage('assets/Imagenes/nest_framework_logo.png'),
-            Header: 'next',
-            color: Colors.green,
-            fit: BoxFit.contain,
-            color2: Colors.green,
-            icono: Icons.arrow_upward_outlined,
+          const SizedBox(
+            height: 10,
           ),
         ],
       ),

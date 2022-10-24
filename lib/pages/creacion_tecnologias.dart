@@ -1,9 +1,14 @@
-import 'package:fasty/autenticacion.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:fasty/pages/tecnologias.dart';
 import 'package:fasty/widgets/fasty_botones.dart';
 import 'package:fasty/widgets/fasty_fields.dart';
+import 'package:fasty/widgets/insertar_Imagen.dart';
 import 'package:flutter/material.dart';
 
-class crear_historias extends StatelessWidget {
+class crear_tecnologia extends StatelessWidget {
+  const crear_tecnologia({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,14 +25,14 @@ class crear_historias extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
-                        children: [
-                          const BackButton(
+                        children: const [
+                          BackButton(
                             color: Colors.lightBlue,
                           ),
-                          Container(
+                          SizedBox(
                             width: 165,
-                            child: const Text(
-                              'Crear nueva Historia de Usuario',
+                            child: Text(
+                              'Crear nueva tecnología',
                               style: TextStyle(
                                 fontFamily: 'Inter',
                                 color: Colors.lightBlue,
@@ -65,26 +70,32 @@ class crear_historias extends StatelessWidget {
                       color: Colors.grey,
                     )),
                 const fastyFields(
+                    showSuffix: true,
                     head: '¿Que es lo que quiere?',
                     field: 'Lorem ipsum dolor st consect'),
                 const fastyFields(
                     head: '¿Para que lo que quiere?',
                     field: 'Lorem ipsum dolor st consect'),
-                const fastyFields(
-                    head: 'Clasificacion',
-                    field: 'Lorem ipsum dolor st consect'),
-                const fastyFields(
-                    head: 'Criterios de Aceptación',
-                    field: 'Lorem ipsum dolor st consect'),
-                const SizedBox(
-                  height: 34,
+                Container(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const insertar_Imagen(
+                        height: 175,
+                      ),
+                      const SizedBox(
+                        height: 60,
+                      ),
+                      fasty_Botones(
+                        btn_label: 'Crear',
+                        btn_label2: 'Cancelar',
+                        icondata: Icons.add_outlined,
+                        direccion: fasty_tecnologias(),
+                      ),
+                    ],
+                  ),
                 ),
-                fasty_Botones(
-                  btn_label: 'Crear',
-                  btn_label2: 'Cancelar',
-                  icondata: Icons.add_outlined,
-                  direccion: autenticacion(),
-                )
               ]),
         ));
   }

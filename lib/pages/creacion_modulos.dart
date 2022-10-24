@@ -1,10 +1,14 @@
-import 'package:fasty/ventana_modulos.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:fasty/pages/ventana_modulos.dart';
 import 'package:fasty/widgets/fasty_botones.dart';
 import 'package:fasty/widgets/fasty_fields.dart';
 import 'package:fasty/widgets/insertar_Imagen.dart';
 import 'package:flutter/material.dart';
 
 class crearModulos extends StatelessWidget {
+  const crearModulos({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

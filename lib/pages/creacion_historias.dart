@@ -1,11 +1,12 @@
-import 'package:fasty/tecnologias.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:fasty/pages/autenticacion.dart';
 import 'package:fasty/widgets/fasty_botones.dart';
 import 'package:fasty/widgets/fasty_fields.dart';
-import 'package:fasty/widgets/insertar_Imagen.dart';
 import 'package:flutter/material.dart';
 
-class crear_tecnologia extends StatelessWidget {
-  const crear_tecnologia({super.key});
+class crear_historias extends StatelessWidget {
+  const crear_historias({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class crear_tecnologia extends StatelessWidget {
                           SizedBox(
                             width: 165,
                             child: Text(
-                              'Crear nueva tecnología',
+                              'Crear nueva Historia de Usuario',
                               style: TextStyle(
                                 fontFamily: 'Inter',
                                 color: Colors.lightBlue,
@@ -68,32 +69,26 @@ class crear_tecnologia extends StatelessWidget {
                       color: Colors.grey,
                     )),
                 const fastyFields(
-                    showSuffix: true,
                     head: '¿Que es lo que quiere?',
                     field: 'Lorem ipsum dolor st consect'),
                 const fastyFields(
                     head: '¿Para que lo que quiere?',
                     field: 'Lorem ipsum dolor st consect'),
-                Container(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const insertar_Imagen(
-                        height: 175,
-                      ),
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      fasty_Botones(
-                        btn_label: 'Crear',
-                        btn_label2: 'Cancelar',
-                        icondata: Icons.add_outlined,
-                        direccion: fasty_tecnologias(),
-                      ),
-                    ],
-                  ),
+                const fastyFields(
+                    head: 'Clasificacion',
+                    field: 'Lorem ipsum dolor st consect'),
+                const fastyFields(
+                    head: 'Criterios de Aceptación',
+                    field: 'Lorem ipsum dolor st consect'),
+                const SizedBox(
+                  height: 34,
                 ),
+                fasty_Botones(
+                  btn_label: 'Crear',
+                  btn_label2: 'Cancelar',
+                  icondata: Icons.add_outlined,
+                  direccion: autenticacion(),
+                )
               ]),
         ));
   }

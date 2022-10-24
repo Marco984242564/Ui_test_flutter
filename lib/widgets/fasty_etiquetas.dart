@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class fasty_etiqueta extends StatelessWidget {
@@ -13,11 +15,11 @@ class fasty_etiqueta extends StatelessWidget {
             onPressed: () {},
             child: Text(
               etiqueta,
-              style: TextStyle(fontFamily: 'Inter', fontSize: 11),
+              style: const TextStyle(fontFamily: 'Inter', fontSize: 11),
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 7,
         )
       ],

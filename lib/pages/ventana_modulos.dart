@@ -1,14 +1,9 @@
-import 'package:fasty/creacion_modulos.dart';
-import 'package:fasty/tecnologias.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:fasty/pages/creacion_modulos.dart';
 import 'package:fasty/widgets/drawer.dart';
 import 'package:fasty/widgets/fasty_Modulos.dart';
-import 'package:fasty/widgets/fasty_options.dart';
 import 'package:flutter/material.dart';
-
-import 'arquitecturas.dart';
-import 'autenticacion.dart';
-import 'fastyboard.dart';
-import 'log_in.dart';
 
 class ventana_Modulos extends StatelessWidget {
   ventana_Modulos({super.key});
@@ -46,7 +41,7 @@ class ventana_Modulos extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => crearModulos()));
+                                builder: (context) => const crearModulos()));
                       },
                       child: const Icon(
                         Icons.add_circle_outlined,
@@ -82,63 +77,7 @@ class ventana_Modulos extends StatelessWidget {
               ],
             )),
         body: ListView(
-          children: const [
-            fasty_Modulos(
-              imgModulo: AssetImage('assets/Imagenes/modulos1.jpg'),
-              Header: 'DASHBOARD',
-              color: Colors.amber,
-              showHU: true,
-              fit: BoxFit.cover,
-              color2: Colors.green,
-              icono: Icons.arrow_back,
-            ),
-            Spacer(),
-            fasty_Modulos(
-              imgModulo: AssetImage('assets/Imagenes/modulos2.jpg'),
-              Header: 'Digitalizacion',
-              color: Colors.redAccent,
-              showHU: true,
-              fit: BoxFit.cover,
-              color2: Colors.green,
-              icono: Icons.arrow_upward_outlined,
-            ),
-            fasty_Modulos(
-              Header: 'Autenticacion',
-              color: Colors.green,
-              imgModulo: AssetImage('assets/Imagenes/modulos3.jpg'),
-              showHU: true,
-              fit: BoxFit.cover,
-              color2: Colors.green,
-              icono: Icons.arrow_upward_outlined,
-            ),
-            fasty_Modulos(
-              Header: 'Usuarios',
-              color: Colors.purple,
-              imgModulo: AssetImage('assets/Imagenes/modulos4.jpg'),
-              showHU: true,
-              fit: BoxFit.cover,
-              color2: Colors.green,
-              icono: Icons.arrow_upward,
-            ),
-            fasty_Modulos(
-              Header: 'Tecnologias',
-              color: Colors.blue,
-              imgModulo: AssetImage('assets/Imagenes/modulos5.jpg'),
-              showHU: true,
-              fit: BoxFit.cover,
-              color2: Colors.green,
-              icono: Icons.arrow_upward_outlined,
-            ),
-            fasty_Modulos(
-              Header: 'Tecnologias',
-              color: Colors.blueGrey,
-              imgModulo: AssetImage('assets/Imagenes/modulos6.jpg'),
-              showHU: true,
-              fit: BoxFit.cover,
-              color2: Colors.green,
-              icono: Icons.arrow_upward_outlined,
-            ),
-          ],
+          children: const [],
         ));
   }
 }

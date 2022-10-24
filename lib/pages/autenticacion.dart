@@ -1,11 +1,15 @@
-import 'package:fasty/creacion_historias.dart';
-import 'package:fasty/fastyboard.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:fasty/pages/creacion_historias.dart';
+import 'package:fasty/pages/fastyboard.dart';
 import 'package:fasty/widgets/autenticacion_box.dart';
 import 'package:fasty/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class autenticacion extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  autenticacion({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +55,7 @@ class autenticacion extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => crear_historias()));
+                              builder: (context) => const crear_historias()));
                     },
                     child: const Icon(
                       Icons.add_circle_outlined,

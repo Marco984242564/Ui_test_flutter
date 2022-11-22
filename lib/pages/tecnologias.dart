@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fasty/models/tecs.dart';
+import 'package:fasty/models/tecnologias.dart';
 import 'package:fasty/pages/creacion_tecnologias.dart';
 import 'package:fasty/widgets/drawer.dart';
 import 'package:fasty/widgets/fasty_Modulos.dart';
@@ -20,29 +20,19 @@ class fasty_tecnologias extends StatefulWidget {
 class _fasty_tecnologiasState extends State<fasty_tecnologias> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<http.Request> _getTec() async {
+  Future<List<Tecnologias>> _getTec() async {
     var request = http.Request(
         'GET',
         Uri.parse(
-            'https://twenty-tips-learn-187-190-158-32.loca.lt/local/technologies/list'));
+            'https://tasty-llamas-glow-187-190-172-194.loca.lt/local/technologies/list'));
 
     http.StreamedResponse response = await request.send();
 
     if (response.statusCode == 200) {
       final res = await response.stream.bytesToString();
-      // var jsonData = await jsonDecode(res);
 
-      // List<Tecnologia> tecnologias = [];
-      // for (var u in jsonData.values) {
-      //   Tecnologia tecnologia = Tecnologia(
-      //       documentation: u['documentation'],
-      //       id: u['id'],
-      //       imageURL: u['imageURL'],
-      //       name: u['name']);
-      //   tecnologias.add(tecnologia);
-      // }
-
-      print(res);
+      final jsonData = jsonDecode(res);
+      print(jsonData["technologies"][0]);
     } else {
       print(response.reasonPhrase);
     }

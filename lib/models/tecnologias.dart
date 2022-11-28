@@ -1,11 +1,13 @@
-class Tecnologias {
+class Tecnologia {
   String id;
   String documentation;
   String imageUrl;
+  String name;
 
-  Tecnologias(id, documentation, imageUrl) {
-    this.id = id;
-    this.documentation = documentation;
-    this.imageUrl = imageUrl;
-  }
+  Tecnologia({
+    required this.id,
+    required this.documentation,
+    required this.imageUrl,
+    required this.name,
+  });
 }

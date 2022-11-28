@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import, camel_case_types
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fasty/models/tecnologias.dart';
@@ -9,6 +10,7 @@ import 'package:fasty/widgets/drawer.dart';
 import 'package:fasty/widgets/fasty_Modulos.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:skeleton_loader/skeleton_loader.dart';
 
 class fasty_tecnologias extends StatefulWidget {
   const fasty_tecnologias({super.key});
@@ -20,29 +22,35 @@ class fasty_tecnologias extends StatefulWidget {
 class _fasty_tecnologiasState extends State<fasty_tecnologias> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<List<Tecnologias>> _getTec() async {
-    var request = http.Request(
-        'GET',
-        Uri.parse(
-            'https://tasty-llamas-glow-187-190-172-194.loca.lt/local/technologies/list'));
+  Future<List<Tecnologia>>? _listadoTec;
+  Future<List<Tecnologia>> _getTec() async {
+    final response = await http.get(Uri.parse(
+        "https://blue-glasses-sin-187-190-176-194.loca.lt/local/technologies/list"));
 
-    http.StreamedResponse response = await request.send();
+    List<Tecnologia> Tecs = [];
 
     if (response.statusCode == 200) {
-      final res = await response.stream.bytesToString();
+      String body = utf8.decode(response.bodyBytes);
+      final jsonData = jsonDecode(body);
 
-      final jsonData = jsonDecode(res);
-      print(jsonData["technologies"][0]);
+      for (var item in jsonData["technologies"]) {
+        Tecs.add(Tecnologia(
+            id: item.id,
+            documentation: item.documentation,
+            imageUrl: item.imageUrl,
+            name: item.name));
+      }
+      return Tecs;
     } else {
-      print(response.reasonPhrase);
+      throw Exception("Error");
     }
-    return request;
   }
 
   @override
   void initState() {
     super.initState();
-    _getTec();
+
+    _listadoTec = _getTec();
   }
 
   @override
@@ -111,9 +119,30 @@ class _fasty_tecnologiasState extends State<fasty_tecnologias> {
                   ],
                 )
               ])),
-      body: ListView(
-        children: const [],
+      body: FutureBuilder(
+        future: _listadoTec,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            print(snapshot.data);
+            return Text("hola");
+          } else if (snapshot.hasError) {
+            print(snapshot.error);
+            return Text("error");
+            return Text("hola");
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
+  }
+
+  List<Widget> _tecs(data) {
+    List<Widget> tecs = [];
+    for (var tec in data) {
+      tecs.add(Text(tec.name));
+    }
+    return tecs;
   }
 }
